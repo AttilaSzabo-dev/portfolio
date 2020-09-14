@@ -1,0 +1,379 @@
+@font-face {
+	font-family: unique;
+	src: url('pic/fantasy.ttf');
+}
+/* Containers */
+
+.primaryCont {
+	height: 100vh;
+}
+.secondaryCont {
+	position: relative;
+	top: 5vh;
+	height: 90vh;
+	float: none;
+	margin: 0 auto;
+	padding: 0;
+	border-top: 1vh groove #664d39;
+	border-left: 1vh ridge #664d39;
+	border-right: 1vh ridge #664d39;
+	border-bottom: 1vh ridge #664d39;
+	z-index: 1500;
+}
+.attributesRow1 {
+	height: 20%;
+	margin: 0 auto;
+}
+.attributesRow2 {
+	height: 30%;
+	margin: 0 auto;
+}
+.allValue_cont {
+	border-bottom: 0.5vh ridge #664d39;
+}
+.allValue {
+	width: 10vh;
+	height: 10vh;
+	border-top: 0.8vh groove #664d39;
+	border-left: 0.8vh ridge #664d39;
+	border-right: 0.8vh ridge #664d39;
+	border-bottom: 0.8vh groove #664d39;
+	background-color: black;
+	opacity: 0.8;
+}
+.allPics_cont {
+	border-right: 0.8vh ridge #664d39;
+	border-bottom: 0.5vh ridge #664d39;
+	background-color: black;
+}
+
+/* Dialog display css */
+
+.choices {
+	width: 90%;
+	height: 10vh;
+	border-top: 0.8vh groove #664d39;
+	border-left: 0.8vh ridge #664d39;
+	border-right: 0.8vh ridge #664d39;
+	border-bottom: 0.8vh groove #664d39;
+	margin-top: 3vh !important;
+	font-family: unique;
+	color: #f58e49;
+	font-size: 1.5vw;
+	cursor: pointer;
+	background-color: black;
+	opacity: 0.8;
+}
+.choices:hover {
+	color: #f58e49;
+	border-top: 0.8vh groove #f58e49;
+	border-left: 0.8vh ridge #f58e49;
+	border-right: 0.8vh ridge #f58e49;
+	border-bottom: 0.8vh groove #f58e49;
+	text-shadow:5px 0px 10px red;
+	box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-webkit-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-moz-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	opacity: 1;
+}
+#questDisplay {
+	width: 90%;
+	height: 40vh;
+	border-top: 0.8vh groove #664d39;
+	border-left: 0.8vh ridge #664d39;
+	border-right: 0.8vh ridge #664d39;
+	border-bottom: 0.8vh groove #664d39;
+	margin-top: 5vh !important;
+	font-family: unique;
+	color: #f58e49;
+	text-align: center;
+	text-shadow:5px 0px 10px red;
+	font-size: 1.5vw;
+	background-color: black;
+	opacity: 0.8;
+}
+
+/* Mana and Stamina, Inventory css */
+.commonValues {
+	height: 27.3%;
+	float: left;
+	border-right: 0.5vh ridge #664d39;
+	border-bottom: 0.5vh ridge #664d39;
+}
+.commonValues_border {
+	border-right: 0.5vh ridge #664d39;
+}
+#coinPic {
+	width: 15%;
+}
+#coinAmount {
+	width: 35%;
+}
+#upperBody_extra {
+	height: 62.3%;
+	float: right;
+	border-right: 0.5vh ridge #664d39;
+	border-bottom: 0.5vh ridge #664d39;
+	padding: 0;
+}
+#lowerBody_extra {
+	height: 35% !important;
+	padding: 0;
+}
+#effectsSlot {
+	height: 33% !important;
+	background-color: black;
+	opacity: 0.8;
+}
+
+.manaPic_cont {
+	width: 15%;
+	height: 5vh;
+	border-right: 0.5vh ridge #664d39;
+	border-bottom: 0.5vh ridge #664d39;
+	float: left;
+}
+.manaCont {
+	width: 85%;
+	height: 5vh;
+	border-bottom: 0.5vh ridge #664d39;
+	padding-top: 1%;
+	padding-bottom: 1%;
+	padding-left: 0;
+	padding-right: 0;
+	margin-bottom: 0;
+	float: right;
+}
+.mana {
+	width: 10vh;
+	height: 100%;
+	border: 0.1vh solid #3399FF;
+	border-radius: 20%;
+	background-color: #3399FF;
+	margin-left: 0.5vh;
+	margin-right: 0.5vh;
+}
+.stamina {
+	width: 10vh;
+	height: 100%;
+	border: 0.1vh solid #ffc51a;
+	border-radius: 20%;
+	background-color: #ffc51a;
+	margin-left: 0.5vh;
+	margin-right: 0.5vh;
+}
+/* Shop css */
+.basicOpa_black {
+	background-color: black;
+	opacity: 0.8;
+}
+#shopName {
+	margin-top: 1.5vw !important;
+}
+#itemLine {
+	height: 10vw;
+	margin-top: 3vw !important;
+	padding: 0;
+}
+.shopItems {
+	background-image: url('pic/hand_basic.png');
+	height: 100%;
+	width: 20%;
+	border: 0.5vh ridge #664d39;
+}
+.shopItems:hover {
+	border-top: 0.5vh groove #f58e49;
+	border-left: 0.5vh ridge #f58e49;
+	border-right: 0.5vh ridge #f58e49;
+	border-bottom: 0.5vh groove #f58e49;
+	box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-webkit-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-moz-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+}
+/* Arena css */
+
+.arenaBorders {
+	border-top: 0.8vh groove #664d39;
+	border-left: 0.8vh ridge #664d39;
+	border-right: 0.8vh ridge #664d39;
+	border-bottom: 0.8vh groove #664d39;
+}
+.carouselBorders {
+	border-top: 0.4vh groove #664d39;
+	border-left: 0.4vh ridge #664d39;
+	border-right: 0.4vh ridge #664d39;
+	border-bottom: 0.4vh groove #664d39;
+}
+.arenaAttacks {
+	width: 23vh;
+	height: 5vh;
+	/*padding-bottom: 1vh !important;*/
+	background-color: black;
+	opacity: 0.8;
+	font-size: 1.5vw !important;
+}
+.arenaValues {
+	width: 5vh;
+	height: 5vh;
+	background-color: black;
+	opacity: 0.8;
+	font-size: 1.25vw !important;
+	font-weight: bold;
+}
+.firstText_row {
+	margin-top: 6vh !important;
+}
+.firstValue_row {
+	margin-top: 0 !important;
+}
+.secondText_row {
+	margin-top: 1vh !important;
+}
+.secondValue_row {
+	margin-top: 0 !important;
+}
+.thirdText_row {
+	margin-top: 4vh !important;
+}
+.thirdValue_row {
+	margin-top: 0 !important;
+}
+.buttons {
+	height: 10vh;
+	background-color: black;
+	opacity: 0.8;
+	font-size: 3vw !important;
+	cursor: pointer;
+}
+.buttonHover:hover {
+	border-top: 0.8vh groove #f58e49;
+	border-left: 0.8vh ridge #f58e49;
+	border-right: 0.8vh ridge #f58e49;
+	border-bottom: 0.8vh groove #f58e49;
+	box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-webkit-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-moz-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+}
+.selectors {
+	height: 12vh;
+	margin-top: 1vh;
+	background-color: black;
+	opacity: 0.8;
+	padding: 0 !important;
+}
+#monsterName {
+	width: 34vh !important;
+	margin-top: 3vh !important;
+	background-color: black;
+	opacity: 0.8;
+}
+#monsterPic {
+	width: 50vh;
+	height: 38.5vh;
+	margin-top: 6vh !important;
+	background-color: black;
+}
+#logDisplay {
+	height: 100%;
+	border-right: 0.8vh groove #664d39;
+	font-size: 1.3vw !important;
+	text-align: left !important;
+	padding-top: 5px !important;
+	padding-left: 5px !important;
+}
+
+/* Background Pictures and Font Styles */
+
+.container-fluid {
+	background-image: url('pic/main_background.jpg');
+	background-size: cover !important;
+}
+.backgroundPic_params {
+	background-size: contain;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.fontParams {
+	font-family: unique;
+	font-size: 3.1vw;
+	text-align: center;
+	color: #f58e49;
+	text-shadow:5px 0px 10px red;
+}
+.extraValue_font {
+	font-size: 2.4vw !important;
+	padding-top: 0.4vw;
+}
+#coinAmount {
+	font-size: 2vw !important;
+}
+.box_shadow {
+	box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-webkit-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+	-moz-box-shadow: 0px 0px 66px 34px rgba(242,104,63,0.61);
+}
+#healthPic {
+	background-image: url('pic/heart.png');
+}
+#attackPic {
+	background-image: url('pic/sword.png');
+}
+#armorPic {
+	background-image: url('pic/shield.png');
+}
+#manaPic {
+	background-image: url('pic/mana.png');
+}
+#staminaPic {
+	background-image: url('pic/stamina.png');
+}
+#coinPic {
+	background-image: url('pic/coin.png');
+}
+#upperBody_armor {
+	background-image: url('pic/armor_basic.png');
+	height: 100%;
+}
+#upperBody_weapon {
+	background-image: url('pic/sword_basic.png');
+	height: 100%;
+}
+#lowerBody_hand {
+	background-image: url('pic/hand_basic.png');
+	height: 100%;
+}
+#lowerBody_leg {
+	background-image: url('pic/leg_basic.png');
+	height: 100%;
+}
+#dialogBackground {
+	background-image: url('pic/inner_background.jpg');
+	background-size: cover !important;
+}
+#shopBackground {
+	background-image: url('pic/shop_background.jpg');
+	background-size: cover !important;
+}
+#arenaBackground {
+	background-image: url('pic/arena_background.jpg');
+	background-size: cover !important;
+}
+.lootSelectors {
+	height: 50% !important;
+}
+#lootSelect {
+	cursor: pointer;
+}
+#lootSelect_cover {
+	cursor: no-drop;
+	opacity: 0.4;
+}
+#attackLoot {
+	border-bottom: 0.8vh groove #664d39;
+	background-image: url('pic/sword.png');
+}
+#defenseLoot {
+	background-image: url('pic/shield.png');
+}
+
+

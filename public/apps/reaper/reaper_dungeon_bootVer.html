@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+	<head>
+		<title>Reaper Dungeon(Boot and Jq Edition)</title>
+		<meta charset='UTF-8'/>
+		<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=1'/>
+		<meta name='apple-mobile-web-app-capable' content='yes'/>
+		<meta name='apple-mobile-web-app-status-bar-style' content='black-translucent'/>
+		<script src="apps/reaper/js/jquery-3.3.1.js"></script>
+		<script src="apps/reaper/js/jquery-ui.js" type="text/javascript"></script>
+		<script src="apps/reaper/js/bootstrap.bundle.js"></script>
+		<link rel="icon" type="image/png" href="apps/reaper/css/pic/favicon2.png"/>
+		<!--<link rel="shortcut icon" type="image/x-icon" href="/assets/favicons/favicon.ico"/>-->
+		<link rel='stylesheet' type='text/css' href='apps/reaper/css/jquery-ui.css'/>
+		<link rel='stylesheet' type='text/css' href='apps/reaper/css/bootstrap.css' media="screen"/>
+		<link rel='stylesheet' type='text/css' href='apps/reaper/css/graphic_reaper_dungeon.css'/>
+		
+		<script src='apps/reaper/js/book_reaper_dungeon.js'></script>
+		<script src='apps/reaper/js/probability.js'></script>
+		<script src='apps/reaper/js/before_script.js'></script> 
+	</head>
+	
+	<style>
+		html, body {
+			position: relative;
+			width: 100vw;
+			height: 100vh;
+			margin: 0;
+			padding: 0;
+			font-size: 1em;
+			background-color: black;
+			overflow: hidden;
+			z-index: 1000;
+			
+			-webkit-touch-callout: none;
+			-webkit-user-select: none;
+			-khtml-user-select: none;
+			-moz-user-select: none;
+			-ms-user-select: none;
+			user-select: none;
+		}
+	</style>
+	
+	<body>
+		<div class="container-fluid backgroundPic_params">
+			<div class="row">
+				<div class="col col-3 primaryCont">
+					<div class="col col-12 secondaryCont">
+						<div class="row attributesRow1">
+							<div id="healthPic" class="col col-6 backgroundPic_params allPics_cont" title="Health"></div>
+							<div class="d-flex col col-6 allValue_cont">
+								<div id="healthValue" class="m-auto text-center allValue fontParams" title="Health"></div>
+								<div id="initValue" class="m-auto text-center allValue fontParams" title="Initiative"></div>
+							</div>
+						</div>
+						<div class="row attributesRow1">
+							<div id="attackPic" class="col col-6 backgroundPic_params allPics_cont" title="Attack"></div>
+							<div class="d-flex col col-6 allValue_cont">
+								<div id="attackValue" class="m-auto allValue fontParams" title="Attack"></div>
+								<div id="extra_attackValue" class="m-auto allValue fontParams extraValue_font" title="Extra Attack"></div>
+							</div>
+						</div>
+						<div class="row attributesRow1">
+							<div id="armorPic" class="col col-6 backgroundPic_params allPics_cont" title="Defense"></div>
+							<div class="d-flex col col-6 allValue_cont">
+								<div id="armorValue" class="m-auto allValue fontParams" title="Armor"></div>
+								<div id="extra_armorValue" class="m-auto allValue fontParams extraValue_font" title="Extra Armor"></div>
+							</div>
+						</div>
+						<div class="flex-column attributesRow2" style="background-color:black;opacity:0.8;">
+							<div id="manaPic" class="backgroundPic_params manaPic_cont" title="Mana"></div>
+							<div class="d-flex manaCont">
+								<div id="mana_0" class="mana"></div>
+								<div id="mana_1" class="mana"></div>
+								<div id="mana_2" class="mana"></div>
+								<div id="mana_3" class="mana"></div>
+								<div id="mana_4" class="mana"></div>
+								<div id="mana_5" class="mana"></div>
+								<div id="mana_6" class="mana"></div>
+								<div id="mana_7" class="mana"></div>
+								<div id="mana_8" class="mana"></div>
+								<div id="mana_9" class="mana"></div>
+							</div>
+							<div id="staminaPic" class="backgroundPic_params manaPic_cont" title="Stamina"></div>
+							<div class="d-flex manaCont">
+								<div id="stamina_0" class="stamina"></div>
+								<div id="stamina_1" class="stamina"></div>
+								<div id="stamina_2" class="stamina"></div>
+								<div id="stamina_3" class="stamina"></div>
+								<div id="stamina_4" class="stamina"></div>
+								<div id="stamina_5" class="stamina"></div>
+								<div id="stamina_6" class="stamina"></div>
+								<div id="stamina_7" class="stamina"></div>
+								<div id="stamina_8" class="stamina"></div>
+								<div id="stamina_9" class="stamina"></div>
+							</div>
+							<div id="coinPic" class="col col-lg-2 backgroundPic_params commonValues" title="Coin"></div>
+							<div id="coinAmount" class="col backgroundPic_params fontParams commonValues" title="Coin"></div>
+							<div id="upperBody_extra" class="d-flex col col-lg-6 backgroundPic_params" title="Extra Armor Upper Body">
+								<div id="upperBody_armor" class="col col-lg-6 backgroundPic_params commonValues_border" title="Extra Defense Chest"></div>
+								<div id="upperBody_weapon" class="col col-lg-6 backgroundPic_params" title="Extra Damage Weapon"></div>
+							</div>
+							<div id="lowerBody_extra" class="d-flex col col-lg-6 backgroundPic_params commonValues" title="Extra Armor Lower Body">
+								<div id="lowerBody_hand" class="col col-lg-6 backgroundPic_params commonValues_border" title="Extra Defense Hand"></div>
+								<div id="lowerBody_leg" class="col col-lg-6 backgroundPic_params" title="Extra Defense Leg"></div>
+							</div>
+							<div id="effectsSlot" class="col col-lg-12 backgroundPic_params commonValues fontParams" title="Active Effects">Active Effects</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-8 primaryCont">
+					<div id="dialogBackground" class="col col-12 secondaryCont backgroundPic_params">
+						<div class="d-flex flex-column">
+							<div id="questDisplay" class="m-auto p-2"></div>
+							<div id="choice_01" class="m-auto p-1 text-center choices" onclick="choice(1)"></div>
+							<div id="choice_02" class="m-auto p-1 text-center choices" onclick="choice(2)"></div>
+							<div id="choice_03" class="m-auto p-1 text-center choices" onclick="choice(3)"></div>
+						</div>
+					</div>
+					<div id="shopBackground" class="col col-12 secondaryCont backgroundPic_params" style="display:none">
+						<div class="row">
+							<div id="shopName" class="m-auto col col-lg-6 arenaBorders fontParams basicOpa_black">The Shop</div>
+						</div>
+						<div class="row">
+							<div id="itemLine" class="d-flex m-auto col col-lg-10 fontParams basicOpa_black">
+								<div id="shopItem_1" class="shopItems backgroundPic_params"></div>
+								<div id="shopItem_2" class="shopItems backgroundPic_params"></div>
+								<div id="shopItem_3" class="shopItems backgroundPic_params"></div>
+								<div id="shopItem_4" class="shopItems backgroundPic_params"></div>
+								<div id="shopItem_5" class="shopItems backgroundPic_params"></div>
+							</div>
+						</div>
+						<div class="row"></div>
+						<div class="row"></div>
+					</div>
+					<div id="arenaBackground" class="col col-12 secondaryCont backgroundPic_params" style="display:none">
+						<div class="row">
+							<div id="monsterName" class="m-auto arenaBorders fontParams"></div>
+						</div>
+						<div class="row m-auto">
+							<div class="d-flex flex-column col-3" style="height:50vh;">
+								<div class="align-self-center firstText_row arenaAttacks arenaBorders fontParams" title="Minimum Attack">Min.Attack</div>
+								<div id="minAttack_value" class="align-self-center firstValue_row arenaValues arenaBorders fontParams"></div>
+								<div class="align-self-center secondText_row arenaAttacks arenaBorders fontParams" title="Maximum Attack">Max.Attack</div>
+								<div id="maxAttack_value" class="align-self-center secondValue_row arenaValues arenaBorders fontParams"></div>
+								<div class="align-self-center thirdText_row arenaAttacks arenaBorders fontParams" title="Actual Attack">Act.Attack</div>
+								<div id="actualAttack_value" class="align-self-center thirdValue_row arenaValues arenaBorders fontParams"></div>
+							</div>
+							<div class="d-flex col-6" style="height:50vh;">
+								<div id="monsterPic" class="m-auto arenaBorders backgroundPic_params"></div>
+							</div>
+							<div class="d-flex flex-column col-3" style="height:50vh;">
+								<div class="align-self-center firstText_row arenaAttacks arenaBorders fontParams">Health</div>
+								<div id="monsterHealth_value" class="align-self-center firstValue_row arenaValues arenaBorders fontParams"></div>
+								<div class="align-self-center secondText_row arenaAttacks arenaBorders fontParams">Initiative</div>
+								<div id="monsterInitiative_value" class="align-self-center secondValue_row arenaValues arenaBorders fontParams"></div>
+								<div class="align-self-center thirdText_row arenaAttacks arenaBorders fontParams">Under Contsr.</div>
+								<div id="" class="align-self-center thirdValue_row arenaValues arenaBorders fontParams">..</div>
+							</div>
+							<div class="d-flex flex-row col-12" style="height:23vh;">
+								<div class="col-3">
+									<div id="attackButton" class="align-self-center buttons buttonHover arenaBorders fontParams" style="display:none" onclick="playerAttack()">Attack!</div>
+									<div id="attackButton_cover" class="align-self-center buttons arenaBorders fontParams" style="opacity:0.5;cursor:no-drop">Attack!</div>
+									<div id="weaponSelector" class="align-self-center selectors arenaBorders">
+										<div id="carouselControl" class="carousel slide" data-interval="false">
+											<div class="carousel-inner">
+												<div class="carousel-item active m-auto" id="tracking_1" title="Sword">
+													<img class="d-block w-100" src="apps/reaper/css/pic/sword2.png" alt="Sword">
+												</div>
+												<div class="carousel-item m-auto" id="tracking_2" title="Fireball">
+													<img class="d-block w-100" src="apps/reaper/css/pic/fireball2.png" alt="Fireball">
+												</div>
+												<div class="carousel-item m-auto" id="tracking_3" title="Heal">
+													<img class="d-block w-100" src="apps/reaper/css/pic/heal3b.png" alt="Heal">
+												</div>
+											</div>
+											<a class="carousel-control-prev" href="#carouselControl" role="button" data-slide="prev" onclick="sliderCheck()">
+												<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+												<span class="sr-only">Previous</span>
+											</a>
+											<a class="carousel-control-next" href="#carouselControl" role="button" data-slide="next" onclick="sliderCheck()">
+												<span class="carousel-control-next-icon" aria-hidden="true"></span>
+												<span class="sr-only">Next</span>
+											</a>
+										</div>
+									</div>
+								</div>
+								<div class="d-flex p-0 col-6 arenaBorders" style="background-color:black;opacity:0.8;">
+									<div id="logDisplay" class="col-10 fontParams"></div>
+									<div id="lootSelect" class="flex-column col-2 p-0" style="display:none;">
+										<div id="attackLoot" class="backgroundPic_params lootSelectors" onclick="sortLoot(true)"></div>
+										<div id="defenseLoot" class="backgroundPic_params lootSelectors" onclick="sortLoot(false)"></div>
+									</div>
+									<div id="lootSelect_cover" class="flex-column col-2 p-0">
+										<div id="attackLoot" class="backgroundPic_params lootSelectors"></div>
+										<div id="defenseLoot" class="backgroundPic_params lootSelectors"></div>
+									</div>
+								</div>
+								<div class="col-3">
+									<div id="retreatButton" class="align-self-center buttons buttonHover arenaBorders fontParams" style="display:none">Retreat!</div>
+									<div id="retreatButton_cover" class="align-self-center buttons arenaBorders fontParams" style="opacity:0.5;cursor:no-drop">Retreat!</div>
+									<div id="options" class="align-self-center selectors arenaBorders fontParams">Options</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col col-1 primaryCont">
+					<div class="col col-12 secondaryCont">
+						<button type="button" class="btn btn-primary" style="width:50px;height:25px;font-size:10px;">arena</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var teszt = true;
+		$("button").click(function() {
+			if (teszt) {
+				enableLoot_select();
+				teszt = false;
+			}
+			else {
+				disableLoot_select();
+				teszt = true;
+			}
+		});
+		$( document ).ready(function() {
+			load_success();
+		});
+	</script>
+</html>
