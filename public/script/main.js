@@ -34,6 +34,13 @@ $(document).on("click", "a[href^='#']", function(event) {
     }, 1000);
 });
 
+/*========== BOUNCING DOWN ARROW ==========*/
+$(document).ready(function() {
+    $(window).scroll(function() {
+        $(".arrow").css("opacity", 1 - $(window).scrollTop() / 250);
+    })
+});
+
 /*========== LIGHTBOX IMAGE GALLERY ==========*/
 $(document).ready(function() {
     lightbox.option({
@@ -41,7 +48,26 @@ $(document).ready(function() {
         "wrapAround": true,
         "imageFadeDuration": 500
     }) 
- });
+});
+
+/*========== TOP SCROLL BUTTON ==========*/
+$(document).ready(function(){
+    $(window).scroll(function() {
+        if ($(this).scrollTop() > 500) {
+            $(".top-scroll").fadeIn("slow");
+        } else {
+            $(".top-scroll").fadeOut("slow");
+        }
+    });
+});
+
+/*========== MAKE ALL ANIMATION "FADEINUP" ON MOBILE ==========*/
+$(document).ready(function(){
+    if ($(window).width() < 768) {
+        $("div").attr("data-animation", "animate__animated animate__fadeInUp");
+        $("div").attr("data-delay", "0s");
+    }
+});
 
 /*========== WAYPOINTS ANIMATION DELAY ==========*/
 //Original Resource: https://www.oxygenna.com/tutorials/scroll-animations-using-waypoints-js-animate-css
