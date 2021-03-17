@@ -34,7 +34,7 @@ app.get("/nuno", function (req, res) {
     res.sendFile(__dirname + "/public/apps/nuno/index.html");
 });
 
-//Listen//
+//Listen
 
 let port = process.env.PORT;
 if (port == null || port == "") {
